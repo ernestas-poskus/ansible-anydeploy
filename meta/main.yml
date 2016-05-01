@@ -1,22 +1,15 @@
 galaxy_info:
   author: Ernestas Poskus
-  description: Deploy any file, directory or archive to specified deploy folder. Specify files that needs to be extracted.
+  description: Deploy any file, directory or archive to specified deploy folder. Specify files that needs to be extracted. Execute local commands before deploy.
   company: ''
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
   # issue_tracker_url: http://example.com/issue/tracker
 
-  # Some suggested licenses:
-  # - BSD (default)
-  # - MIT
-  # - GPLv2
-  # - GPLv3
-  # - Apache
-  # - CC-BY
   license: BSD
 
-  min_ansible_version: 1.8
+  min_ansible_version: 1.9
 
   # Optionally specify the branch Galaxy will use when accessing the GitHub
   # repo for this role. During role install, if no tags are available,
@@ -87,7 +80,7 @@ galaxy_info:
     versions:
       - all
 
-  galaxy_tags: []
+  galaxy_tags: [deploy, deployment]
     # List tags for your role here, one per line. A tag is
     # a keyword that describes and categorizes the role.
     # Users find roles by searching for tags. Be sure to
