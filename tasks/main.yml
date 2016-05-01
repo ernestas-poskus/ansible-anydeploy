@@ -1,0 +1,41 @@
+---
+# tasks file for ansible-anydeploy
+- name: Get host $USER
+  local_action: shell whoami
+  sudo: false
+  register: local_user
+
+- name: Local commands to execute
+  local_action: shell {{item}}
+  become: yes
+  become_user: "{{local_user.stdout}}"
+  with_items:
+    - "{{local_commands}}"
+  
+- name: Creating deploy directory "{{deploy_dir}}"
+  file:
+    path={{deploy_dir}}
+    owner={{deploy_user}}
+    group={{deploy_user_group}}
+    mode={{deploy_dir_mode}}
+    state=directory
+
+- name: Transferring files
+  copy:
+    src={{item}}
+    dest={{deploy_dir}}
+    owner={{deploy_user}}
+    group={{deploy_user_group}}
+  with_items:
+    - "{{files_to_transfer}}"
+
+- name: Unarchiving temporal achive to target machine
+  unarchive:
+    src={{deploy_dir}}/{{item}}
+    dest={{deploy_dir}}
+    owner={{deploy_user}}
+    group={{deploy_user_group}}
+    mode={{deploy_dir_mode}}
+    copy=no
+  with_items:
+    - "{{files_to_unarchive}}"

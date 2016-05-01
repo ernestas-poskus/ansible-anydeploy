@@ -1,0 +1,9 @@
+---
+# defaults file for ansible-anydeploy
+deploy_dir: /opt/anydeploy
+deploy_user: "{{ansible_user_id}}"
+deploy_user_group: "{{ansible_user_id}}"
+deploy_dir_mode: 0755
+local_commands: []
+files_to_transfer: []
+files_to_unarchive: []

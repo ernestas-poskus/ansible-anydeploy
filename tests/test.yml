@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  roles:
+    - role: ansible-anydeploy
+      deploy_dir: ~/tested
+      local_commands:
+        - touch /tmp/file1
+        - touch /tmp/file2
+        - tar -czf /tmp/wow.tgz -C /tmp file1 file2
+      files_to_transfer:
+        - /tmp/wow.tgz
+      files_to_unarchive:
+        - wow.tgz
+
+
