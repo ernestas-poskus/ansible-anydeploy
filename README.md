@@ -25,6 +25,7 @@ deploy_dir_mode: 0755
 local_commands: []
 files_to_transfer: []
 files_to_unarchive: []
+foreign_commands: []
 ```
 
 Dependencies
@@ -50,6 +51,8 @@ Example Playbook
         - /tmp/wow.tgz
       files_to_unarchive:
         - wow.tgz
+      foreign_commands:
+        - touch /tmp/self
 
 
 ```

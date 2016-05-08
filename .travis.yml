@@ -27,6 +27,7 @@ script:
   - [ -f ~/tested/file1 ] && echo "File exist" && exit 0 || echo "File does not exist" && exit 1
   - [ -f ~/tested/file2 ] && echo "File exist" && exit 0 || echo "File does not exist" && exit 1
   - [ -f ~/tested/wow.tgz ] && echo "File exist" && exit 0 || echo "File does not exist" && exit 1
+  - [ -f ~/tmp/self ] && echo "File exist" && exit 0 || echo "File does not exist" && exit 1
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
