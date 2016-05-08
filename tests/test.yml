@@ -11,5 +11,5 @@
         - /tmp/wow.tgz
       files_to_unarchive:
         - wow.tgz
-
-
+      foreign_commands:
+        - touch /tmp/server.tmp

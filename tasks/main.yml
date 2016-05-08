@@ -11,7 +11,7 @@
   become_user: "{{local_user.stdout}}"
   with_items:
     - "{{local_commands}}"
-  
+
 - name: Creating deploy directory "{{deploy_dir}}"
   file:
     path={{deploy_dir}}
@@ -39,3 +39,8 @@
     copy=no
   with_items:
     - "{{files_to_unarchive}}"
+
+- name: Foreign commands to execute
+  shell: "{{item}}"
+  with_items:
+    - "{{foreign_commands}}"
