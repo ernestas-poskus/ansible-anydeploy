@@ -29,14 +29,8 @@
   with_items:
     - "{{files_to_transfer}}"
 
-- name: Unarchiving temporal achive to target machine
-  unarchive:
-    src={{deploy_dir}}/{{item}}
-    dest={{deploy_dir}}
-    owner={{deploy_user}}
-    group={{deploy_user_group}}
-    mode={{deploy_dir_mode}}
-    copy=no
+- name: Unarchiving temporal archive to target machine
+  command: "tar --owner={{deploy_user}} --group={{deploy_user_group}} -xvf {{deploy_dir}}/{{item}} -C {{deploy_dir}}"
   with_items:
     - "{{files_to_unarchive}}"
 
